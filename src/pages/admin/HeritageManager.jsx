@@ -1,0 +1,33 @@
+import HeritageManagement from './HeritageManagement';
+
+export default function HeritageManager({ onBack }) {
+  return (
+    <div className="min-h-screen bg-heritage-cream-50">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-heritage-red-800 via-heritage-red-700 to-heritage-red-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={onBack}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-heritage-red-600/50 hover:bg-heritage-red-600 transition-all border border-heritage-gold-400/30"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span className="hidden sm:inline">Quay lại</span>
+            </button>
+            <div>
+              <h1 className="text-2xl font-display font-bold">Quản lý Di sản</h1>
+              <p className="text-heritage-gold-300 text-sm">Thêm, sửa, xóa thông tin di sản văn hóa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <HeritageManagement />
+      </div>
+    </div>
+  );
+}

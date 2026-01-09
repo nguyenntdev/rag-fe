@@ -1,3 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors */
+    --color-bg-primary: 255 254 251;
+    --color-bg-secondary: 255 255 255;
+    --color-bg-tertiary: 249 250 251;
+    --color-text-primary: 31 41 55;
+    --color-text-secondary: 75 85 99;
+    --color-text-muted: 156 163 175;
+    --color-border: 229 231 235;
+    --color-border-light: 243 244 246;
+  }
+
+  .dark {
+    /* Dark mode colors */
+    --color-bg-primary: 17 24 39;
+    --color-bg-secondary: 31 41 55;
+    --color-bg-tertiary: 55 65 81;
+    --color-text-primary: 243 244 246;
+    --color-text-secondary: 209 213 219;
+    --color-text-muted: 156 163 175;
+    --color-border: 75 85 99;
+    --color-border-light: 55 65 81;
+  }
+
+  html {
+    font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply text-gray-800 bg-heritage-cream-50;
+    @apply dark:text-gray-100 dark:bg-gray-900;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Be Vietnam Pro', Georgia, serif;
+    @apply font-semibold text-gray-900 dark:text-gray-100;
+    line-height: 1.3;
+  }
+
+  h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl;
+  }
+
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+
+  h3 {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+
+  p {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  /* Better text rendering */
+  * {
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Links */
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  /* Focus states */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-heritage-gold-500 ring-offset-2;
+    @apply dark:ring-offset-gray-900;
+  }
+
+  /* Better button text */
+  button {
+    font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  }
+
+  /* Input placeholder */
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-gray-400 dark:text-gray-500;
+  }
+
+  /* Dark mode input styling */
+  input, textarea, select {
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100;
+  }
+}
+
+@layer components {
+  /* Heritage Card Styles */
+  .heritage-card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm;
+    @apply hover:shadow-md hover:border-heritage-gold-300;
+    @apply transition-all duration-300;
+    @apply dark:bg-gray-800 dark:border-gray-700 dark:hover:border-heritage-gold-500;
+  }
+
+  .heritage-card-header {
+    @apply p-4 border-b border-gray-100;
+    @apply bg-gradient-to-r from-gray-50 to-gray-100;
+    @apply dark:border-gray-700 dark:from-gray-800 dark:to-gray-750;
+  }
+
+  /* Heritage Button Styles */
+  .btn-heritage {
+    @apply px-5 py-2.5 rounded-lg font-medium;
+    @apply bg-heritage-red-700 text-white;
+    @apply hover:bg-heritage-red-800 active:bg-heritage-red-900;
+    @apply shadow-sm hover:shadow-md;
+    @apply transition-all duration-200;
+  }
+
+  .btn-heritage-outline {
+    @apply px-5 py-2.5 rounded-lg font-medium;
+    @apply bg-transparent text-heritage-red-700;
+    @apply border-2 border-heritage-red-700;
+    @apply hover:bg-heritage-red-700 hover:text-white;
+    @apply transition-all duration-200;
+    @apply dark:text-heritage-red-400 dark:border-heritage-red-400;
+    @apply dark:hover:bg-heritage-red-700 dark:hover:text-white;
+  }
+
+  .btn-gold {
+    @apply px-5 py-2.5 rounded-lg font-medium;
+    @apply bg-gradient-to-r from-heritage-gold-500 to-heritage-gold-600;
+    @apply text-white shadow-sm;
+    @apply hover:from-heritage-gold-600 hover:to-heritage-gold-700;
+    @apply hover:shadow-md;
+    @apply transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply px-5 py-2.5 rounded-lg font-medium;
+    @apply bg-gray-100 text-gray-700;
+    @apply hover:bg-gray-200;
+    @apply transition-all duration-200;
+    @apply dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+  }
+
+  /* Badge Styles */
+  .badge-national-special {
+    @apply bg-heritage-red-100 text-heritage-red-800 border border-heritage-red-200;
+    @apply px-2.5 py-1 rounded-full text-xs font-semibold;
+    @apply dark:bg-heritage-red-900/50 dark:text-heritage-red-200 dark:border-heritage-red-700;
+  }
+
+  .badge-national {
+    @apply bg-heritage-gold-100 text-heritage-gold-800 border border-heritage-gold-200;
+    @apply px-2.5 py-1 rounded-full text-xs font-semibold;
+    @apply dark:bg-heritage-gold-900/50 dark:text-heritage-gold-200 dark:border-heritage-gold-700;
+  }
+
+  .badge-provincial {
+    @apply bg-emerald-100 text-emerald-800 border border-emerald-200;
+    @apply px-2.5 py-1 rounded-full text-xs font-semibold;
+    @apply dark:bg-emerald-900/50 dark:text-emerald-200 dark:border-emerald-700;
+  }
+
+  /* Heritage Input Styles */
+  .input-heritage {
+    @apply w-full px-4 py-3 rounded-lg;
+    @apply bg-white border border-gray-300;
+    @apply text-gray-900 placeholder-gray-400;
+    @apply focus:border-heritage-gold-500 focus:ring-2 focus:ring-heritage-gold-100;
+    @apply transition-all duration-200;
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100;
+    @apply dark:placeholder-gray-500 dark:focus:ring-heritage-gold-900/50;
+  }
+
+  /* Custom Scrollbar */
+  .scrollbar-heritage::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-heritage::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+
+  .dark .scrollbar-heritage::-webkit-scrollbar-track {
+    @apply bg-gray-800;
+  }
+
+  .scrollbar-heritage::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+    @apply hover:bg-gray-400;
+  }
+
+  .dark .scrollbar-heritage::-webkit-scrollbar-thumb {
+    @apply bg-gray-600;
+    @apply hover:bg-gray-500;
+  }
+
+  /* Shadow variants */
+  .shadow-elegant {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .shadow-elegant {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .shadow-elegant-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .shadow-elegant-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Gold accent */
+  .shadow-gold {
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.2);
+  }
+
+  .shadow-heritage {
+    box-shadow: 0 4px 14px rgba(185, 28, 28, 0.15);
+  }
+
+  /* Dark mode cards */
+  .dark-card {
+    @apply bg-white dark:bg-gray-800;
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
+  /* Dark mode modals */
+  .dark-modal {
+    @apply bg-white dark:bg-gray-800;
+    @apply border-gray-200 dark:border-gray-700;
+    @apply text-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer utilities {
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hide Scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Truncate multiple lines */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-transform duration-200;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Dark mode transition */
+  .theme-transition {
+    @apply transition-colors duration-300;
+  }
+}
