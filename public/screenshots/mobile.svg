@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffefb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#991b1b"/>
+      <stop offset="50%" style="stop-color:#b91c1c"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="50%" style="stop-color:#fbbf24"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="390" height="844" fill="url(#bgGrad)"/>
+
+  <!-- Status bar area (device) -->
+  <rect x="0" y="0" width="390" height="44" fill="#1f2937" opacity="0.9"/>
+  <text x="30" y="30" font-family="Arial" font-size="14" fill="#ffffff">9:41</text>
+  <rect x="320" y="18" width="25" height="12" rx="3" fill="none" stroke="#ffffff" stroke-width="1"/>
+  <rect x="322" y="20" width="18" height="8" rx="2" fill="#34d399"/>
+
+  <!-- Header -->
+  <rect x="0" y="44" width="390" height="60" fill="url(#headerGrad)"/>
+  <rect x="0" y="104" width="390" height="3" fill="url(#goldGrad)"/>
+
+  <!-- Header content -->
+  <rect x="15" y="58" width="32" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <rect x="22" y="66" width="18" height="2" rx="1" fill="#ffffff"/>
+  <rect x="22" y="72" width="18" height="2" rx="1" fill="#ffffff"/>
+  <rect x="22" y="78" width="18" height="2" rx="1" fill="#ffffff"/>
+
+  <circle cx="70" cy="74" r="18" fill="#f59e0b"/>
+  <rect x="95" y="62" width="140" height="12" rx="2" fill="#ffffff"/>
+  <rect x="95" y="80" width="90" height="9" rx="2" fill="#fcd34d" opacity="0.8"/>
+
+  <!-- Language selector -->
+  <rect x="320" y="58" width="55" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="347" y="79" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle">🇻🇳</text>
+
+  <!-- Hero section -->
+  <rect x="15" y="120" width="360" height="130" rx="16" fill="url(#headerGrad)"/>
+  <rect x="15" y="120" width="360" height="4" rx="2" fill="url(#goldGrad)"/>
+  <rect x="15" y="246" width="360" height="4" rx="2" fill="url(#goldGrad)"/>
+
+  <!-- Hero content -->
+  <circle cx="55" cy="175" r="25" fill="#f59e0b"/>
+  <rect x="90" y="155" width="180" height="16" rx="3" fill="#ffffff"/>
+  <rect x="90" y="178" width="250" height="10" rx="2" fill="rgba(255,255,255,0.7)"/>
+
+  <!-- Search bar in hero -->
+  <rect x="35" y="205" width="320" height="36" rx="10" fill="#ffffff"/>
+  <circle cx="55" cy="223" r="8" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  <rect x="75" y="217" width="150" height="12" rx="2" fill="#d1d5db"/>
+
+  <!-- Filter chips -->
+  <rect x="15" y="265" width="360" height="50" rx="12" fill="#ffffff"/>
+  <rect x="25" y="280" width="70" height="28" rx="8" fill="#b91c1c"/>
+  <text x="60" y="299" font-family="Arial" font-size="11" fill="#ffffff" text-anchor="middle">Tất cả</text>
+  <rect x="105" y="280" width="70" height="28" rx="8" fill="#f3f4f6" stroke="#d1d5db"/>
+  <text x="140" y="299" font-family="Arial" font-size="11" fill="#6b7280" text-anchor="middle">Di sản</text>
+  <rect x="185" y="280" width="80" height="28" rx="8" fill="#f3f4f6" stroke="#d1d5db"/>
+  <text x="225" y="299" font-family="Arial" font-size="11" fill="#6b7280" text-anchor="middle">Nhân vật</text>
+  <rect x="275" y="280" width="70" height="28" rx="8" fill="#f3f4f6" stroke="#d1d5db"/>
+  <text x="310" y="299" font-family="Arial" font-size="11" fill="#6b7280" text-anchor="middle">Lễ hội</text>
+
+  <!-- Heritage card 1 -->
+  <rect x="15" y="330" width="360" height="160" rx="12" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="15" y="330" width="360" height="4" rx="2" fill="#b91c1c"/>
+  <rect x="15" y="334" width="360" height="75" fill="#f3f4f6" rx="0"/>
+  <circle cx="195" cy="372" r="22" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+
+  <!-- Badge -->
+  <rect x="295" y="345" width="70" height="22" rx="11" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="330" y="361" font-family="Arial" font-size="10" fill="#92400e" text-anchor="middle">Quốc gia</text>
+
+  <rect x="30" y="420" width="200" height="14" rx="2" fill="#1f2937"/>
+  <rect x="30" y="442" width="300" height="10" rx="2" fill="#6b7280"/>
+  <rect x="30" y="460" width="250" height="10" rx="2" fill="#6b7280"/>
+
+  <!-- Heritage card 2 -->
+  <rect x="15" y="505" width="360" height="160" rx="12" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="15" y="505" width="360" height="4" rx="2" fill="#16a34a"/>
+  <rect x="15" y="509" width="360" height="75" fill="#f3f4f6"/>
+  <circle cx="195" cy="547" r="22" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+
+  <!-- Badge -->
+  <rect x="295" y="520" width="70" height="22" rx="11" fill="#dcfce7" stroke="#bbf7d0"/>
+  <text x="330" y="536" font-family="Arial" font-size="10" fill="#166534" text-anchor="middle">Cấp tỉnh</text>
+
+  <rect x="30" y="595" width="220" height="14" rx="2" fill="#1f2937"/>
+  <rect x="30" y="617" width="280" height="10" rx="2" fill="#6b7280"/>
+  <rect x="30" y="635" width="230" height="10" rx="2" fill="#6b7280"/>
+
+  <!-- Partial card 3 (bottom) -->
+  <rect x="15" y="680" width="360" height="80" rx="12" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="15" y="680" width="360" height="4" rx="2" fill="#f59e0b"/>
+  <rect x="15" y="684" width="360" height="75" fill="#f3f4f6" rx="0"/>
+
+  <!-- Bottom navigation bar -->
+  <rect x="0" y="784" width="390" height="60" fill="#ffffff"/>
+  <rect x="0" y="784" width="390" height="1" fill="#e5e7eb"/>
+
+  <!-- Nav items -->
+  <g transform="translate(48, 800)">
+    <rect x="-20" y="-5" width="40" height="36" rx="8" fill="#fef2f2"/>
+    <circle cx="0" cy="10" r="10" fill="#b91c1c"/>
+    <rect x="-15" y="25" width="30" height="8" rx="2" fill="#b91c1c"/>
+  </g>
+
+  <g transform="translate(146, 800)">
+    <circle cx="0" cy="10" r="10" fill="#d1d5db"/>
+    <rect x="-12" y="25" width="24" height="8" rx="2" fill="#9ca3af"/>
+  </g>
+
+  <g transform="translate(244, 800)">
+    <circle cx="0" cy="10" r="10" fill="#d1d5db"/>
+    <rect x="-12" y="25" width="24" height="8" rx="2" fill="#9ca3af"/>
+  </g>
+
+  <g transform="translate(342, 800)">
+    <circle cx="0" cy="10" r="10" fill="#d1d5db"/>
+    <rect x="-12" y="25" width="24" height="8" rx="2" fill="#9ca3af"/>
+  </g>
+
+  <!-- Home indicator -->
+  <rect x="140" y="828" width="110" height="5" rx="2.5" fill="#1f2937" opacity="0.3"/>
+
+  <!-- App branding watermark -->
+  <text x="195" y="775" font-family="Georgia, serif" font-size="12" fill="#b91c1c" text-anchor="middle" opacity="0.5">Di sản Văn hóa Cà Mau</text>
+</svg>

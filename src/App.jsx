@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import HeritageListPage from './pages/HeritageList';
 import QuizPage from './pages/QuizPage';
 import TextToSpeechPage from './pages/TTSPage';
+import ContributePage from './pages/ContributePage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Sidebar } from './components/Sidebar';
@@ -68,6 +69,7 @@ export default function App() {
             {currentPage === 'chat' && <ChatPage />}
             {currentPage === 'quiz' && <QuizPage />}
             {currentPage === 'tts' && <TextToSpeechPage />}
+            {currentPage === 'contribute' && <ContributePage />}
           </div>
         </main>
       </div>

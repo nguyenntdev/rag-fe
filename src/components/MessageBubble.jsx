@@ -10,7 +10,7 @@ export function MessageBubble({ message, isStreaming = false }) {
       {/* Avatar for assistant */}
       {!isUser && (
         <div className="flex-shrink-0 mr-3">
-          <div className="w-10 h-10 rounded-full bg-heritage-red-700 flex items-center justify-center shadow-heritage border-2 border-heritage-gold-400">
+          <div className="w-10 h-10 rounded-full bg-heritage-red-700 dark:bg-heritage-red-800 flex items-center justify-center shadow-heritage border-2 border-heritage-gold-400 dark:border-heritage-gold-500">
             <Landmark className="w-5 h-5 text-heritage-gold-300" />
           </div>
         </div>
@@ -21,7 +21,7 @@ export function MessageBubble({ message, isStreaming = false }) {
         className={`max-w-[80%] rounded-2xl px-5 py-3.5 shadow-elegant ${
           isUser
             ? 'bg-gradient-to-r from-heritage-red-700 to-heritage-red-800 text-white rounded-br-md border border-heritage-red-600'
-            : 'bg-white text-heritage-earth-800 rounded-bl-md border border-heritage-earth-200'
+            : 'bg-white dark:bg-gray-700 text-heritage-earth-800 dark:text-gray-100 rounded-bl-md border border-heritage-earth-200 dark:border-gray-600'
         }`}
       >
         {/* Message Content with Markdown */}
@@ -29,7 +29,7 @@ export function MessageBubble({ message, isStreaming = false }) {
           className={`text-sm leading-relaxed text-start prose prose-sm max-w-none ${
             isUser
               ? 'prose-invert prose-p:text-white prose-headings:text-white prose-strong:text-white prose-a:text-heritage-gold-300'
-              : 'prose-heritage prose-p:text-heritage-earth-800 prose-headings:text-heritage-earth-900 prose-strong:text-heritage-earth-900 prose-a:text-heritage-red-700'
+              : 'prose-heritage prose-p:text-heritage-earth-800 dark:prose-p:text-gray-100 prose-headings:text-heritage-earth-900 dark:prose-headings:text-gray-50 prose-strong:text-heritage-earth-900 dark:prose-strong:text-gray-50 prose-a:text-heritage-red-700 dark:prose-a:text-heritage-gold-400'
           }`}
         >
           <ReactMarkdown
@@ -67,7 +67,7 @@ export function MessageBubble({ message, isStreaming = false }) {
                   className={`underline hover:no-underline font-medium ${
                     isUser
                       ? 'text-heritage-gold-300 hover:text-heritage-gold-200'
-                      : 'text-heritage-red-700 hover:text-heritage-red-800'
+                      : 'text-heritage-red-700 dark:text-heritage-gold-400 hover:text-heritage-red-800 dark:hover:text-heritage-gold-300'
                   }`}
                 >
                   {children}
@@ -81,7 +81,7 @@ export function MessageBubble({ message, isStreaming = false }) {
                     className={`px-1.5 py-0.5 rounded text-xs font-mono ${
                       isUser
                         ? 'bg-heritage-red-600 text-heritage-gold-200'
-                        : 'bg-heritage-earth-100 text-heritage-red-700 border border-heritage-earth-200'
+                        : 'bg-heritage-earth-100 dark:bg-gray-600 text-heritage-red-700 dark:text-heritage-gold-300 border border-heritage-earth-200 dark:border-gray-500'
                     }`}
                   >
                     {children}
@@ -91,7 +91,7 @@ export function MessageBubble({ message, isStreaming = false }) {
                     className={`p-3 rounded-lg text-xs font-mono overflow-x-auto my-2 ${
                       isUser
                         ? 'bg-heritage-red-900/50 border border-heritage-red-600'
-                        : 'bg-heritage-earth-50 border border-heritage-earth-200'
+                        : 'bg-heritage-earth-50 dark:bg-gray-800 border border-heritage-earth-200 dark:border-gray-600'
                     }`}
                   >
                     <code>{children}</code>
@@ -104,7 +104,7 @@ export function MessageBubble({ message, isStreaming = false }) {
                   className={`border-l-4 pl-3 my-2 italic ${
                     isUser
                       ? 'border-heritage-gold-400 text-heritage-gold-100'
-                      : 'border-heritage-gold-500 text-heritage-earth-600 bg-heritage-gold-50/50 py-1 rounded-r'
+                      : 'border-heritage-gold-500 dark:border-heritage-gold-600 text-heritage-earth-600 dark:text-gray-300 bg-heritage-gold-50/50 dark:bg-heritage-gold-900/20 py-1 rounded-r'
                   }`}
                 >
                   {children}
@@ -122,7 +122,7 @@ export function MessageBubble({ message, isStreaming = false }) {
                   className={`border px-2 py-1.5 font-semibold text-left ${
                     isUser
                       ? 'border-heritage-red-500 bg-heritage-red-600'
-                      : 'border-heritage-earth-300 bg-heritage-earth-100'
+                      : 'border-heritage-earth-300 dark:border-gray-600 bg-heritage-earth-100 dark:bg-gray-700'
                   }`}
                 >
                   {children}
@@ -131,7 +131,7 @@ export function MessageBubble({ message, isStreaming = false }) {
               td: ({ children }) => (
                 <td
                   className={`border px-2 py-1.5 ${
-                    isUser ? 'border-heritage-red-500' : 'border-heritage-earth-300'
+                    isUser ? 'border-heritage-red-500' : 'border-heritage-earth-300 dark:border-gray-600'
                   }`}
                 >
                   {children}
@@ -142,7 +142,7 @@ export function MessageBubble({ message, isStreaming = false }) {
               hr: () => (
                 <hr
                   className={`my-3 ${
-                    isUser ? 'border-heritage-red-500' : 'border-heritage-earth-200'
+                    isUser ? 'border-heritage-red-500' : 'border-heritage-earth-200 dark:border-gray-600'
                   }`}
                 />
               ),
@@ -165,7 +165,7 @@ export function MessageBubble({ message, isStreaming = false }) {
       {/* Avatar for user */}
       {isUser && (
         <div className="flex-shrink-0 ml-3">
-          <div className="w-10 h-10 rounded-full bg-heritage-earth-700 flex items-center justify-center shadow-elegant border-2 border-heritage-earth-500">
+          <div className="w-10 h-10 rounded-full bg-heritage-earth-700 dark:bg-heritage-earth-800 flex items-center justify-center shadow-elegant border-2 border-heritage-earth-500 dark:border-heritage-earth-600">
             <User className="w-5 h-5 text-white" />
           </div>
         </div>

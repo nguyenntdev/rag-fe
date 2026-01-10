@@ -6,13 +6,19 @@ import App from './App.jsx'
 import { AuthProvider } from './context/AuthContext'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
+import { ContributionProvider } from './context/ContributionContext'
+import { GamificationProvider } from './context/GamificationContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
       <LanguageProvider>
         <AuthProvider>
-          <App />
+          <ContributionProvider>
+            <GamificationProvider>
+              <App />
+            </GamificationProvider>
+          </ContributionProvider>
         </AuthProvider>
       </LanguageProvider>
     </ThemeProvider>

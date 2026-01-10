@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#b91c1c">
+  <title>Không có kết nối - Di sản Văn hóa Cà Mau</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #fffefb 0%, #fef3c7 50%, #fde68a 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 480px;
+      padding: 40px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(67, 48, 43, 0.15);
+      border: 1px solid #e0cec7;
+    }
+
+    .icon-container {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .icon-container::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 3px solid #fbbf24;
+      opacity: 0.5;
+    }
+
+    .icon-container svg {
+      width: 60px;
+      height: 60px;
+      color: #fcd34d;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+      color: #43302b;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #977669;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      border-radius: 100px;
+      font-size: 14px;
+      color: #92400e;
+      margin-bottom: 24px;
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #f59e0b;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .tips {
+      text-align: left;
+      background: #fdf8f6;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      border: 1px solid #eaddd7;
+    }
+
+    .tips h3 {
+      font-size: 14px;
+      color: #43302b;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .tips ul {
+      list-style: none;
+      font-size: 14px;
+      color: #846358;
+    }
+
+    .tips li {
+      padding: 6px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .tips li::before {
+      content: '•';
+      position: absolute;
+      left: 8px;
+      color: #d97706;
+    }
+
+    .retry-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(185, 28, 28, 0.3);
+    }
+
+    .retry-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(185, 28, 28, 0.4);
+    }
+
+    .retry-btn:active {
+      transform: translateY(0);
+    }
+
+    .retry-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #eaddd7;
+      font-size: 12px;
+      color: #a18072;
+    }
+
+    .footer a {
+      color: #b91c1c;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      }
+
+      .container {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      h1 {
+        color: #f3f4f6;
+      }
+
+      .subtitle {
+        color: #9ca3af;
+      }
+
+      .status-badge {
+        background: #78350f;
+        border-color: #92400e;
+        color: #fcd34d;
+      }
+
+      .tips {
+        background: #374151;
+        border-color: #4b5563;
+      }
+
+      .tips h3 {
+        color: #f3f4f6;
+      }
+
+      .tips ul {
+        color: #d1d5db;
+      }
+
+      .footer {
+        border-color: #374151;
+        color: #6b7280;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon-container">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414" />
+      </svg>
+    </div>
+
+    <div class="status-badge">
+      Đang offline
+    </div>
+
+    <h1>Không có kết nối mạng</h1>
+    <p class="subtitle">
+      Ứng dụng Di sản Văn hóa Cà Mau cần kết nối internet để tải dữ liệu mới.
+      Vui lòng kiểm tra kết nối và thử lại.
+    </p>
+
+    <div class="tips">
+      <h3>💡 Bạn có thể thử:</h3>
+      <ul>
+        <li>Kiểm tra kết nối Wi-Fi hoặc dữ liệu di động</li>
+        <li>Tắt chế độ máy bay nếu đang bật</li>
+        <li>Di chuyển đến nơi có sóng tốt hơn</li>
+        <li>Khởi động lại router hoặc modem</li>
+      </ul>
+    </div>
+
+    <button class="retry-btn" onclick="window.location.reload()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+      Thử lại
+    </button>
+
+    <div class="footer">
+      <p>Di sản Văn hóa Cà Mau - <a href="/">Trang chủ</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Auto-retry when online
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+
+    // Check connection periodically
+    setInterval(() => {
+      if (navigator.onLine) {
+        window.location.reload();
+      }
+    }, 5000);
+  </script>
+</body>
+</html>

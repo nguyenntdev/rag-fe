@@ -147,7 +147,7 @@ export function HeritageDetailModal({ item, onClose }) {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-heritage-earth-950/70 backdrop-blur-sm animate-fade-in">
-            <div className="bg-white rounded-2xl shadow-elegant-lg max-w-3xl w-full max-h-[90vh] overflow-hidden animate-scale-in border border-heritage-earth-200">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-elegant-lg max-w-3xl w-full max-h-[90vh] overflow-hidden animate-scale-in border border-heritage-earth-200 dark:border-gray-700">
                 {/* Decorative top border */}
                 <div className="h-1.5 bg-gradient-to-r from-heritage-red-700 via-heritage-gold-500 to-heritage-red-700" />
 
@@ -220,10 +220,10 @@ export function HeritageDetailModal({ item, onClose }) {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-320px)] scrollbar-heritage">
+                <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-320px)] scrollbar-heritage bg-white dark:bg-gray-800">
                     {/* Audio Control */}
                     {item.audioFile && (
-                        <div className="mb-6 p-5 rounded-xl bg-gradient-to-r from-heritage-gold-50 to-heritage-cream-100 border-2 border-heritage-gold-200 relative overflow-hidden">
+                        <div className="mb-6 p-5 rounded-xl bg-gradient-to-r from-heritage-gold-50 to-heritage-cream-100 dark:from-gray-700 dark:to-gray-700 border-2 border-heritage-gold-200 dark:border-gray-600 relative overflow-hidden">
                             {/* Decorative accent */}
                             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-heritage-red-600 via-heritage-gold-500 to-heritage-red-600" />
 
@@ -233,8 +233,8 @@ export function HeritageDetailModal({ item, onClose }) {
                                         <Volume2 className="w-5 h-5 text-white" />
                                     </div>
                                     <div>
-                                        <span className="font-display font-semibold text-heritage-earth-900">Nghe giới thiệu</span>
-                                        <p className="text-xs text-heritage-earth-500">Bản audio thuyết minh</p>
+                                        <span className="font-display font-semibold text-heritage-earth-900 dark:text-gray-100">Nghe giới thiệu</span>
+                                        <p className="text-xs text-heritage-earth-500 dark:text-gray-400">Bản audio thuyết minh</p>
                                     </div>
                                 </div>
                                 {isPlaying && (
@@ -242,7 +242,7 @@ export function HeritageDetailModal({ item, onClose }) {
                                         {[...Array(5)].map((_, i) => (
                                             <div
                                                 key={i}
-                                                className="w-1 bg-heritage-gold-500 rounded-full animate-pulse"
+                                                className="w-1 bg-heritage-gold-500 dark:bg-heritage-gold-400 rounded-full animate-pulse"
                                                 style={{
                                                     height: `${12 + (i % 3) * 6}px`,
                                                     animationDelay: `${i * 0.15}s`
@@ -285,7 +285,7 @@ export function HeritageDetailModal({ item, onClose }) {
                                 {isPlaying && (
                                     <button
                                         onClick={handleStopAudio}
-                                        className="px-6 py-3 rounded-xl font-semibold bg-heritage-earth-100 text-heritage-earth-700 hover:bg-heritage-earth-200 transition-colors border border-heritage-earth-200"
+                                        className="px-6 py-3 rounded-xl font-semibold bg-heritage-earth-100 dark:bg-gray-600 text-heritage-earth-700 dark:text-gray-200 hover:bg-heritage-earth-200 dark:hover:bg-gray-500 transition-colors border border-heritage-earth-200 dark:border-gray-500"
                                     >
                                         Dừng
                                     </button>
@@ -307,33 +307,33 @@ export function HeritageDetailModal({ item, onClose }) {
                         {informationData.sections.length > 0 && (
                             <div>
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="w-10 h-10 rounded-lg bg-heritage-red-100 flex items-center justify-center border border-heritage-red-200">
-                                        <Info className="w-5 h-5 text-heritage-red-700" />
+                                    <div className="w-10 h-10 rounded-lg bg-heritage-red-100 dark:bg-heritage-red-900/30 flex items-center justify-center border border-heritage-red-200 dark:border-heritage-red-700">
+                                        <Info className="w-5 h-5 text-heritage-red-700 dark:text-heritage-red-400" />
                                     </div>
                                     <div>
-                                        <h3 className="text-lg font-display font-bold text-heritage-earth-900">
+                                        <h3 className="text-lg font-display font-bold text-heritage-earth-900 dark:text-gray-100">
                                             Thông tin chi tiết
                                         </h3>
-                                        <p className="text-xs text-heritage-earth-500">Lịch sử và giá trị văn hóa</p>
+                                        <p className="text-xs text-heritage-earth-500 dark:text-gray-400">Lịch sử và giá trị văn hóa</p>
                                     </div>
                                 </div>
 
                                 {/* Ornamental divider */}
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-heritage-gold-400 to-transparent" />
-                                    <Sparkles className="w-4 h-4 text-heritage-gold-500" />
-                                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-heritage-gold-400 to-transparent" />
+                                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-heritage-gold-400 dark:via-heritage-gold-600 to-transparent" />
+                                    <Sparkles className="w-4 h-4 text-heritage-gold-500 dark:text-heritage-gold-400" />
+                                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-heritage-gold-400 dark:via-heritage-gold-600 to-transparent" />
                                 </div>
 
                                 <div className="space-y-4">
                                     {informationData.sections.map((section, index) => (
                                         <div key={index}>
                                             {section.type === 'text' ? (
-                                                <p className="text-heritage-earth-700 leading-relaxed whitespace-pre-wrap">
+                                                <p className="text-heritage-earth-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
                                                     {section.content}
                                                 </p>
                                             ) : (
-                                                <div className="rounded-xl overflow-hidden shadow-elegant my-4 border border-heritage-earth-200">
+                                                <div className="rounded-xl overflow-hidden shadow-elegant my-4 border border-heritage-earth-200 dark:border-gray-600">
                                                     <img
                                                         src={section.content}
                                                         alt={`${item.name} - Hình ${index + 1}`}
@@ -353,42 +353,42 @@ export function HeritageDetailModal({ item, onClose }) {
                         {/* Details Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {item.rankingType && (
-                                <div className="p-4 rounded-xl bg-heritage-cream-50 border border-heritage-earth-200">
-                                    <div className="flex items-center gap-2 text-sm text-heritage-earth-500 mb-1">
+                                <div className="p-4 rounded-xl bg-heritage-cream-50 dark:bg-gray-700 border border-heritage-earth-200 dark:border-gray-600">
+                                    <div className="flex items-center gap-2 text-sm text-heritage-earth-500 dark:text-gray-400 mb-1">
                                         <Award className="w-4 h-4 text-heritage-gold-500" />
                                         <span>Loại xếp hạng</span>
                                     </div>
-                                    <div className="font-semibold text-heritage-earth-900">{item.rankingType}</div>
+                                    <div className="font-semibold text-heritage-earth-900 dark:text-gray-100">{item.rankingType}</div>
                                 </div>
                             )}
 
                             {item.address && (
-                                <div className="p-4 rounded-xl bg-heritage-cream-50 border border-heritage-earth-200">
-                                    <div className="flex items-center gap-2 text-sm text-heritage-earth-500 mb-1">
-                                        <MapPin className="w-4 h-4 text-heritage-red-600" />
+                                <div className="p-4 rounded-xl bg-heritage-cream-50 dark:bg-gray-700 border border-heritage-earth-200 dark:border-gray-600">
+                                    <div className="flex items-center gap-2 text-sm text-heritage-earth-500 dark:text-gray-400 mb-1">
+                                        <MapPin className="w-4 h-4 text-heritage-red-600 dark:text-heritage-red-400" />
                                         <span>Địa chỉ đầy đủ</span>
                                     </div>
-                                    <div className="font-semibold text-heritage-earth-900">{item.address}</div>
+                                    <div className="font-semibold text-heritage-earth-900 dark:text-gray-100">{item.address}</div>
                                 </div>
                             )}
 
                             {item.yearBuilt && (
-                                <div className="p-4 rounded-xl bg-heritage-cream-50 border border-heritage-earth-200">
-                                    <div className="flex items-center gap-2 text-sm text-heritage-earth-500 mb-1">
-                                        <Calendar className="w-4 h-4 text-heritage-gold-600" />
+                                <div className="p-4 rounded-xl bg-heritage-cream-50 dark:bg-gray-700 border border-heritage-earth-200 dark:border-gray-600">
+                                    <div className="flex items-center gap-2 text-sm text-heritage-earth-500 dark:text-gray-400 mb-1">
+                                        <Calendar className="w-4 h-4 text-heritage-gold-600 dark:text-heritage-gold-400" />
                                         <span>Năm xây dựng</span>
                                     </div>
-                                    <div className="font-semibold text-heritage-earth-900">{item.yearBuilt}</div>
+                                    <div className="font-semibold text-heritage-earth-900 dark:text-gray-100">{item.yearBuilt}</div>
                                 </div>
                             )}
 
                             {item.yearRanked && (
-                                <div className="p-4 rounded-xl bg-heritage-cream-50 border border-heritage-earth-200">
-                                    <div className="flex items-center gap-2 text-sm text-heritage-earth-500 mb-1">
-                                        <Award className="w-4 h-4 text-heritage-jade-600" />
+                                <div className="p-4 rounded-xl bg-heritage-cream-50 dark:bg-gray-700 border border-heritage-earth-200 dark:border-gray-600">
+                                    <div className="flex items-center gap-2 text-sm text-heritage-earth-500 dark:text-gray-400 mb-1">
+                                        <Award className="w-4 h-4 text-heritage-jade-600 dark:text-heritage-jade-400" />
                                         <span>Năm xếp hạng</span>
                                     </div>
-                                    <div className="font-semibold text-heritage-earth-900">{item.yearRanked}</div>
+                                    <div className="font-semibold text-heritage-earth-900 dark:text-gray-100">{item.yearRanked}</div>
                                 </div>
                             )}
                         </div>
@@ -396,17 +396,17 @@ export function HeritageDetailModal({ item, onClose }) {
                 </div>
 
                 {/* Footer */}
-                <div className="p-5 border-t border-heritage-earth-200 bg-heritage-cream-50">
+                <div className="p-5 border-t border-heritage-earth-200 dark:border-gray-700 bg-heritage-cream-50 dark:bg-gray-800">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                            <div className="flex items-center gap-1.5 text-sm text-heritage-earth-500">
+                            <div className="flex items-center gap-1.5 text-sm text-heritage-earth-500 dark:text-gray-400">
                                 <Landmark className="w-4 h-4 text-heritage-gold-500" />
-                                <span>Mã số: <span className="font-semibold text-heritage-earth-700">#{item.id}</span></span>
+                                <span>Mã số: <span className="font-semibold text-heritage-earth-700 dark:text-gray-200">#{item.id}</span></span>
                             </div>
                         </div>
                         <button
                             onClick={onClose}
-                            className="px-6 py-2.5 rounded-lg bg-heritage-earth-800 hover:bg-heritage-earth-900 text-white font-semibold transition-colors shadow-elegant"
+                            className="px-6 py-2.5 rounded-lg bg-heritage-earth-800 hover:bg-heritage-earth-900 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold transition-colors shadow-elegant"
                         >
                             Đóng
                         </button>

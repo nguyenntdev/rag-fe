@@ -13,68 +13,86 @@
   "categories": ["education", "culture", "tourism"],
   "icons": [
     {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
       "src": "/icons/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-96x96.png",
       "sizes": "96x96",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-152x152.png",
       "sizes": "152x152",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-384x384.png",
       "sizes": "384x384",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "screenshots": [
     {
-      "src": "/screenshots/desktop.png",
+      "src": "/screenshots/desktop.svg",
       "sizes": "1280x720",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "form_factor": "wide",
-      "label": "Heritage Explorer Desktop View"
+      "label": "Heritage Explorer - Khám phá di sản văn hóa Cà Mau"
     },
     {
-      "src": "/screenshots/mobile.png",
+      "src": "/screenshots/mobile.svg",
       "sizes": "390x844",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "form_factor": "narrow",
-      "label": "Heritage Explorer Mobile View"
+      "label": "Heritage Explorer - Giao diện di động"
     }
   ],
   "shortcuts": [
@@ -83,23 +101,28 @@
       "short_name": "Di sản",
       "description": "Xem danh sách di sản văn hóa",
       "url": "/?page=heritage",
-      "icons": [{ "src": "/icons/heritage-shortcut.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/icons/heritage-shortcut.svg", "sizes": "96x96", "type": "image/svg+xml" }]
     },
     {
       "name": "Trò chuyện AI",
       "short_name": "Chat AI",
       "description": "Hỏi đáp về di sản với AI",
       "url": "/?page=chat",
-      "icons": [{ "src": "/icons/chat-shortcut.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/icons/chat-shortcut.svg", "sizes": "96x96", "type": "image/svg+xml" }]
     },
     {
       "name": "Kiểm tra Kiến thức",
       "short_name": "Quiz",
       "description": "Chơi trò chơi kiểm tra kiến thức",
       "url": "/?page=quiz",
-      "icons": [{ "src": "/icons/quiz-shortcut.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/icons/quiz-shortcut.svg", "sizes": "96x96", "type": "image/svg+xml" }]
     }
   ],
   "related_applications": [],
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "display_override": ["standalone", "minimal-ui"],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
 }

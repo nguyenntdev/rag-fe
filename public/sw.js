@@ -10,6 +10,7 @@ const DATA_CACHE = 'heritage-data-v1';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
+  '/offline.html',
   '/manifest.json',
   '/vite.svg',
   '/logo.png'
@@ -84,12 +85,12 @@ self.addEventListener('fetch', (event) => {
   }
 
   // Handle different types of requests
-  if (isImageRequest(request)) {
+  if (isNavigationRequest(request)) {
+    event.respondWith(handleNavigationRequest(request));
+  } else if (isImageRequest(request)) {
     event.respondWith(handleImageRequest(request));
   } else if (isAPIRequest(request)) {
     event.respondWith(handleAPIRequest(request));
-  } else if (isNavigationRequest(request)) {
-    event.respondWith(handleNavigationRequest(request));
   } else {
     event.respondWith(handleStaticRequest(request));
   }
@@ -187,18 +188,38 @@ async function handleAPIRequest(request) {
   }
 }
 
-// Handle navigation requests - network first, fallback to cached index.html
+// Handle navigation requests - network first, fallback to cached index.html or offline page
 async function handleNavigationRequest(request) {
   try {
     const networkResponse = await fetch(request);
+
+    // Cache successful navigation responses
+    if (networkResponse.ok) {
+      const cache = await caches.open(CACHE_NAME);
+      cache.put(request, networkResponse.clone());
+    }
+
     return networkResponse;
   } catch (error) {
-    console.log('[ServiceWorker] Navigation fetch failed, serving cached index.html');
+    console.log('[ServiceWorker] Navigation fetch failed, trying cache...');
     const cache = await caches.open(CACHE_NAME);
-    const cachedResponse = await cache.match('/index.html');
 
+    // Try to serve cached version of the requested page
+    const cachedResponse = await cache.match(request);
     if (cachedResponse) {
       return cachedResponse;
+    }
+
+    // Fallback to cached index.html for SPA routing
+    const indexResponse = await cache.match('/index.html');
+    if (indexResponse) {
+      return indexResponse;
+    }
+
+    // Last resort: serve offline page
+    const offlineResponse = await cache.match('/offline.html');
+    if (offlineResponse) {
+      return offlineResponse;
     }
 
     return new Response('Offline - Page not available', {

@@ -1,4 +1,4 @@
-import { X, MessageSquare, BookOpen, Brain, Volume2, Landmark, Sparkles, Settings } from 'lucide-react';
+import { X, MessageSquare, BookOpen, Brain, Volume2, Landmark, Sparkles, Settings, PenLine } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export function Sidebar({ isOpen, onClose, currentPage, onNavigate }) {
@@ -28,6 +28,12 @@ export function Sidebar({ isOpen, onClose, currentPage, onNavigate }) {
       label: t('sidebar.textToSpeech'),
       icon: Volume2,
       description: t('sidebar.ttsDesc')
+    },
+    {
+      id: 'contribute',
+      label: t('sidebar.contribute') || 'Đóng góp',
+      icon: PenLine,
+      description: t('sidebar.contributeDesc') || 'Gửi đề xuất di sản'
     }
   ];
 

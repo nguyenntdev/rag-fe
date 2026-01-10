@@ -101,9 +101,10 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Noto Serif', 'Georgia', 'serif'],
-        display: ['Playfair Display', 'serif'],
-        body: ['Source Sans Pro', 'system-ui', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       backgroundImage: {
         // Vietnamese traditional patterns

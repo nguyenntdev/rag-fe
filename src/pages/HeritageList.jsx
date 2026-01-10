@@ -15,6 +15,7 @@ function normalizeHeritage(item) {
     id: Number(item.id),
     name: item.name?.trim() ?? '',
     address: item.address ?? '',
+    commune: item.commune ?? extractCommuneFromAddress(item.address),
     yearRanked: item.yearRanked ?? null,
     rankingType: item.rankingType ?? 'Unknown',
     yearBuilt: item.yearBuilt ?? null,
@@ -25,10 +26,23 @@ function normalizeHeritage(item) {
   };
 }
 
-const extractCommune = (address) => {
+// Extract commune from address string
+const extractCommuneFromAddress = (address) => {
   if (!address) return '';
+  // Match "xã X" or "phường X" patterns
   const match = address.match(/(xã|phường)\s+([^,]+)/i);
-  return match ? `${match[1]} ${match[2]}`.trim() : address;
+  if (match) {
+    const type = match[1].charAt(0).toUpperCase() + match[1].slice(1).toLowerCase();
+    const name = match[2].trim();
+    return `${type} ${name}`;
+  }
+  return '';
+};
+
+// Get commune from item (use commune field or extract from address)
+const getItemCommune = (item) => {
+  if (item.commune) return item.commune;
+  return extractCommuneFromAddress(item.address);
 };
 
 const HERITAGE_DATA = heritageData.map(normalizeHeritage)
@@ -53,9 +67,9 @@ export default function HeritageListPage() {
     return allData.filter(item => {
       const matchesType = typeFilter === 'all' || item.dataType === typeFilter;
 
-      const itemCommune = extractCommune(item.address);
+      const itemCommune = getItemCommune(item);
       const matchesCommune = communeFilter === 'all' ||
-        item.address.toLowerCase().includes(communeFilter.toLowerCase()) ||
+        itemCommune.toLowerCase() === communeFilter.toLowerCase() ||
         itemCommune.toLowerCase().includes(communeFilter.toLowerCase());
 
       const matchesSearch =
@@ -71,13 +85,12 @@ export default function HeritageListPage() {
   const availableCommunes = useMemo(() => {
     const communesWithData = new Set(
       allData
-        .map(item => extractCommune(item.address))
+        .map(item => getItemCommune(item))
         .filter(Boolean)
     );
 
-    return COMMUNES.filter(commune =>
-      communesWithData.has(commune)
-    );
+    // Return communes that have data, sorted alphabetically
+    return Array.from(communesWithData).sort((a, b) => a.localeCompare(b, 'vi'));
   }, [allData]);
 
   const handleItemClick = (item) => {
@@ -152,13 +165,13 @@ export default function HeritageListPage() {
                 placeholder={t('heritage.searchPlaceholder')}
                 className="w-full px-5 py-3.5 pl-12 rounded-xl text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-heritage-gold-400 shadow-md placeholder-gray-400 dark:placeholder-gray-500 border border-heritage-gold-200 dark:border-gray-600"
               />
-              <Search className="absolute left-4 top-4.5 w-5 h-5 text-heritage-earth-400" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-heritage-earth-400" />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-4 p-1 hover:bg-heritage-earth-100 rounded-full transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-heritage-earth-100 dark:hover:bg-gray-700 rounded-full transition-colors"
                 >
-                  <X className="w-4 h-4 text-heritage-earth-500" />
+                  <X className="w-4 h-4 text-heritage-earth-500 dark:text-gray-400" />
                 </button>
               )}
             </div>
@@ -209,13 +222,15 @@ export default function HeritageListPage() {
                   className="w-full px-4 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-heritage-gold-500 focus:ring-2 focus:ring-heritage-gold-100 dark:focus:ring-heritage-gold-900/50 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 appearance-none cursor-pointer transition-colors hover:border-gray-400 dark:hover:border-gray-500"
                 >
                   <option value="all">{t('heritage.allCommunes')}</option>
-                  <optgroup label={t('common.all') === 'All' ? 'With data' : 'Có dữ liệu'}>
-                    {availableCommunes.map(commune => (
-                      <option key={commune} value={commune}>
-                        {commune.startsWith('Phường') ? '🏙️' : '🏘️'} {commune}
-                      </option>
-                    ))}
-                  </optgroup>
+                  {availableCommunes.length > 0 && (
+                    <optgroup label={t('common.all') === 'All' ? 'With data' : 'Có dữ liệu'}>
+                      {availableCommunes.map(commune => (
+                        <option key={commune} value={commune}>
+                          {commune.startsWith('Phường') ? '🏙️' : '🏘️'} {commune}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
                 </select>
                 <ChevronDown className="absolute right-3 top-3.5 w-5 h-5 text-heritage-earth-400 dark:text-gray-400 pointer-events-none" />
               </div>

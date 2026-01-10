@@ -1,5 +1,5 @@
-// import { useStreamingChat } from "../hooks/streamingChat";
-import { useStreamingChat } from "../hooks/streamingFakeChat";
+import { useStreamingChat } from "../hooks/streamingChat";
+// import { useStreamingChat } from "../hooks/streamingFakeChat";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useTranslation } from 'react-i18next';
 
@@ -17,10 +17,14 @@ export function ChatWindow() {
   const messagesEndRef = useRef(null);
   const messagesContainerRef = useRef(null);
 
-  // Scroll to bottom function
+  // Scroll to bottom function - scrolls only within the container, not the whole page
   const scrollToBottom = useCallback((behavior = 'smooth') => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior });
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.scrollTo({
+        top: container.scrollHeight,
+        behavior: behavior
+      });
     }
   }, []);
 
@@ -119,7 +123,7 @@ export function ChatWindow() {
         <div className="h-1 bg-gradient-to-r from-heritage-red-700 via-heritage-gold-500 to-heritage-red-700" />
 
         {/* Chat Header */}
-        <div className="relative bg-gradient-to-r from-heritage-red-800 via-heritage-red-700 to-heritage-red-800 text-white px-4 sm:px-6 py-4">
+        <div className="relative bg-gradient-to-r from-heritage-red-800 via-heritage-red-700 to-heritage-red-800 text-white px-4 sm:px-6 py-4 flex-shrink-0">
           {/* Gold accent line at bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-heritage-gold-400 via-heritage-gold-300 to-heritage-gold-400" />
 
@@ -169,16 +173,17 @@ export function ChatWindow() {
             />
           ))}
 
-          <div ref={messagesEndRef} />
+          {/* Invisible element at the end for reference */}
+          <div ref={messagesEndRef} className="h-0" />
 
-          {/* Scroll to bottom button */}
+          {/* Scroll to bottom button - positioned relative to container */}
           {showScrollButton && (
             <button
               onClick={() => {
                 setUserScrolled(false);
                 scrollToBottom();
               }}
-              className="fixed bottom-32 right-8 p-3 bg-heritage-red-700 text-white rounded-full shadow-lg hover:bg-heritage-red-800 transition-all animate-fade-in z-10"
+              className="sticky bottom-4 left-full -translate-x-12 p-3 bg-heritage-red-700 text-white rounded-full shadow-lg hover:bg-heritage-red-800 transition-all animate-fade-in z-10"
               aria-label="Scroll to bottom"
             >
               <ArrowDown className="w-5 h-5" />
@@ -187,7 +192,7 @@ export function ChatWindow() {
         </div>
 
         {/* Input Area */}
-        <div className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+        <div className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 flex-shrink-0">
           {/* Suggested Questions */}
           <SuggestedQuestions
             onQuestionClick={handleSuggestedQuestion}
@@ -207,7 +212,7 @@ export function ChatWindow() {
                 className="w-full px-4 py-3 pr-12 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:border-heritage-gold-500 focus:ring-2 focus:ring-heritage-gold-200 dark:focus:ring-heritage-gold-800 disabled:bg-gray-100 dark:disabled:bg-gray-800 disabled:cursor-not-allowed text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 placeholder-gray-400 dark:placeholder-gray-500 transition-all"
               />
               {input.length > 0 && (
-                <span className="absolute right-4 top-3.5 text-xs text-gray-400">
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-400">
                   {t('chat.charCount', { count: input.length })}
                 </span>
               )}
